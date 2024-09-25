@@ -1,5 +1,10 @@
 # esp_s3_touch_lcd_1_28_example_slint
 
+An example how to use https://github.com/IniterWorker/gc9a01 with Slint on ESP32s3
+
+![Demo image](demo.jpg "MCU Demo")
+
+
 ## Dev Containers
 This repository offers Dev Containers supports for:
 -  [VS Code Dev Containers](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
