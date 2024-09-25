@@ -1,0 +1,45 @@
+[package]
+name = "esp-s3-touch-lcd-1-28-example-slint"
+version = "0.1.0"
+authors = ["rsov <ruzzzlan@hotmail.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+gc9a01-rs = { git = "https://github.com/rsov/gc9a01.git", branch = "feature/direct-write" }
+
+esp-backtrace = { version = "0.14.0", features = [
+    "esp32s3",
+    "exception-handler",
+    "panic-handler",
+    "println",
+] }
+esp-hal = { version = "0.20.1", features = ["esp32s3"] }
+esp-println = { version = "0.11.0", features = ["esp32s3", "log"] }
+log = { version = "0.4.21" }
+
+slint = { version = "1.8.0", default-features = false, features = [
+    "compat-1-2",
+    "unsafe-single-threaded",
+    "libm",
+    "renderer-software",
+] }
+embedded-hal-bus = "0.2.0"
+esp-alloc = "0.4.0"
+
+[profile.dev]
+# Rust debug is too slow.
+# For debug builds always builds with some optimization
+opt-level = "s"
+
+[profile.release]
+codegen-units = 1        # LLVM can perform better optimizations using a single thread
+debug = 2
+debug-assertions = false
+incremental = false
+lto = 'fat'
+opt-level = 's'
+overflow-checks = false
+
+[build-dependencies]
+slint-build = "1.8.0"

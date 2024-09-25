@@ -1,0 +1,51 @@
+
+export component AppWindow inherits Window {
+    width: 240px;
+    height: 240px;
+
+    padding: 0;
+    background: darkblue;
+
+    Rectangle {
+        border-radius: 240px / 2;
+        border-color: black;
+        border-width: 1px;
+
+        Rectangle {
+            background: orange;
+            border-color: white;
+            border-width: 2px;
+
+            border-radius: self.width / 2;
+            width: 25px;
+            height: 25px;
+
+            x: root.width / 2 - (root.width / 2 / 2);
+            y: 80px;
+        }
+
+        Rectangle {
+            background: orange;
+            border-color: white;
+            border-width: 2px;
+
+            border-radius: self.width / 2;
+            width: 25px;
+            height: 25px;
+
+            x: root.width / 2 + (root.width / 2 / 4);
+            y: 80px;
+        }
+
+        Rectangle {
+            background: orange;
+            border-color: white;
+            border-width: 2px;
+
+            x: root.width / 2 - (root.width / 2 / 2);
+            y: 160px;
+            width: root.width / 2;
+            height: 20px;
+        }
+    }
+}
