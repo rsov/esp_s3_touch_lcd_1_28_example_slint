@@ -75,8 +75,11 @@ fn main() -> ! {
     )
     .into_buffered_graphics();
 
+    display_driver.clear_fit().unwrap();
     display_driver.reset(&mut reset_output, &mut delay).ok();
     display_driver.init(&mut delay).ok();
+    display_driver.flush().unwrap();
+
     log::info!("Driver configured!");
 
     let window = MinimalSoftwareWindow::new(Default::default());
